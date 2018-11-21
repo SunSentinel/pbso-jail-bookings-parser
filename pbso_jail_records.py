@@ -57,12 +57,16 @@ with open(filename.replace(".xml", "") + ".csv", 'w', newline='') as csvfile:
         for attribute in booking_attributes:
             if booking.has_attr(attribute) is False:
                 booking[attribute] = ""
+            else:
+                booking[attribute] = booking[attribute].strip()
 
         # Drill down into the list of cases.
         cases = booking.find_all("Cases")
         for case in cases:
             if case.has_attr("ArrestingAgency") is False:
                 case["ArrestingAgency"] = ""
+            else:
+                case["ArrestingAgency"] = case["ArrestingAgency"].strip()
 
             # Drill down into the charges for the case.
             charges = case.find_all("Charges")
@@ -70,6 +74,8 @@ with open(filename.replace(".xml", "") + ".csv", 'w', newline='') as csvfile:
                 for attribute in charge_attributes:
                     if charge.has_attr(attribute) is False:
                         charge[attribute] = ""
+                    else:
+                        charge[attribute] = charge[attribute].strip()
 
                 # Drill down into the bio for the case.
                 bio = charge.find("BIO")  # Just get the first one
@@ -77,6 +83,8 @@ with open(filename.replace(".xml", "") + ".csv", 'w', newline='') as csvfile:
                 for attribute in bio_attributes:
                     if bio.has_attr(attribute) is False:
                         bio[attribute] = ""
+                    else:
+                        bio[attribute] = bio[attribute].strip()
 
                 writer.writerow({
                     "FullName": booking['FullName'],
