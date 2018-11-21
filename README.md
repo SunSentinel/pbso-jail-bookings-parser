@@ -27,7 +27,7 @@ The sheriff's office XML file is structured like so:
 </Booking>
 ```
 
-The script flattens the the data to create a single row for each charge containing all the biographical details, arresting info, charge details and more.
+The script flattens the XML data to create a single row for each charge containing all the biographical details, arresting info, charge details and more.
 
 ## Authors
 
