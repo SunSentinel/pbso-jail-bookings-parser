@@ -34,7 +34,7 @@ booking_data = soup.find_all("Booking")
 
 item_counter = 0
 
-csv_fieldnames = ["FullName", "birthdate", "Race", "address1", "city", "state", "zipcode", "BookingDate", "BookingTime", "BookingId", "Jacket", "InmateFirst", "InmateMiddle", "InmateLast", "InmateSuffix", "ReleaseDate", "ReleaseTime", "Gender", "ChargeCode", "ChargeDescription", "currentbond", "bondamount", "OBTS", "facility", "cell", "holdotheragencies"]
+csv_fieldnames = ["FullName", "birthdate", "Race", "address1", "city", "state", "zipcode", "BookingDate", "BookingTime", "BookingId", "Jacket", "InmateFirst", "InmateMiddle", "InmateLast", "InmateSuffix", "ReleaseDate", "ReleaseTime", "Gender", "ArrestingAgency", "ChargeCode", "ChargeDescription", "currentbond", "bondamount", "OBTS", "facility", "cell", "holdotheragencies"]
 
 with open(filename.replace(".xml", "") + ".csv", 'w', newline='') as csvfile:
     writer = csv.DictWriter(csvfile, fieldnames=csv_fieldnames)
@@ -105,6 +105,7 @@ with open(filename.replace(".xml", "") + ".csv", 'w', newline='') as csvfile:
                     "ReleaseDate": booking['ReleaseDate'],
                     "ReleaseTime": booking['ReleaseTime'],
                     "Gender": booking['Gender'],
+                    "ArrestingAgency": case["ArrestingAgency"],
                     "ChargeCode": charge['ChargeCode'],
                     "ChargeDescription": charge['ChargeDescription'],
                     "currentbond": charge['currentbond'],
