@@ -1,3 +1,13 @@
+#!/usr/bin/env python
+"""
+    Parses jail booking data files provided by the Palm Beach Sheriff's Office.
+
+    This script takes an XML file provided by the sheriff's office, parses it and outputs a flattened CSV file named the same as the XML file. The script is run via the command line and accepts the name of the XML file as an argument, like so:
+    python pbso_jail_records.py myfilename.xml
+
+    Author: Danny Sanchez, South Florida Sun Sentinel, dsanchez@sun-sentinel.com
+"""
+
 import sys
 import csv
 from termcolor import colored
